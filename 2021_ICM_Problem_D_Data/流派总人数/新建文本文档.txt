@@ -1,0 +1,46 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Sat Feb  6 17:09:00 2021
+
+@author: Peanut
+"""
+
+import pyecharts.options as opts
+from pyecharts.charts import ThemeRiver
+
+"""
+Gallery 使用 pyecharts 1.1.0
+参考地址: https://echarts.baidu.com/examples/editor.html?c=themeRiver-basic
+
+目前无法实现的功能:
+
+1、暂时无法设置阴影样式
+"""
+x_data = ["Avant-Garde", "Blues", "Children's", "Classical", "Comedy/Spoken", "Country", "Easy Listening", "Electronic", "Folk", "International","Jazz","Latin","New Age","Pop/Rock","R&B","Reggae","Religious","Stage & Screen","Vocal"]
+
+y_data = []
+
+
+import csv
+name=[]
+num=[]
+with open('C:\\Users\\Peanut\\Desktop\\2021_ICM_Problem_D_Data\\流派总人数.csv',encoding='utf-8')as f:
+    f_csv = csv.reader(f)
+    for row in f_csv:
+        y_data.append(row)
+
+
+(
+    ThemeRiver(init_opts=opts.InitOpts(width="1200px", height="600px"))
+    .add(
+        series_name=x_data,
+        data=y_data,
+        singleaxis_opts=opts.SingleAxisOpts(
+            pos_top="50", pos_bottom="50", type_="time"
+        ),
+    )
+    .set_global_opts(
+        tooltip_opts=opts.TooltipOpts(trigger="axis", axis_pointer_type="line")
+    )
+    .render("C:\\Users\\Peanut\\Desktop\\2021_ICM_Problem_D_Data\\theme_river.html")
+)

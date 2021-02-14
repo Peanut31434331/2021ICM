@@ -1,0 +1,572 @@
+%%
+%% This is file `mcmthesis-demo.tex',
+%% generated with the docstrip utility.
+%%
+%% The original source files were:
+%%
+%% mcmthesis.dtx  (with options: `demo')
+%% 
+%% -----------------------------------
+%% 
+%% This is a generated file.
+%% 
+%% Copyright (C)
+%%       2010 -- 2015 by Zhaoli Wang
+%%       2014 -- 2019 by Liam Huang
+%%       2019 -- present by latexstudio.net
+%% 
+%% This work may be distributed and/or modified under the
+%% conditions of the LaTeX Project Public License, either version 1.3
+%% of this license or (at your option) any later version.
+%% The latest version of this license is in
+%%   http://www.latex-project.org/lppl.txt
+%% and version 1.3 or later is part of all distributions of LaTeX
+%% version 2005/12/01 or later.
+%% 
+%% This work has the LPPL maintenance status `maintained'.
+%% 
+%% The Current Maintainer of this work is latexstudio.net.
+%% 
+%%
+%% This is file `mcmthesis-demo.tex',
+%% generated with the docstrip utility.
+%%
+%% The original source files were:
+%%
+%% mcmthesis.dtx  (with options: `demo')
+%%
+%% -----------------------------------
+%%
+%% This is a generated file.
+%%
+%% Copyright (C)
+%%       2010 -- 2015 by Zhaoli Wang
+%%       2014 -- 2019 by Liam Huang
+%%       2019 -- present by latexstudio.net
+%%
+%% This work may be distributed and/or modified under the
+%% conditions of the LaTeX Project Public License, either version 1.3
+%% of this license or (at your option) any later version.
+%% The latest version of this license is in
+%%   http://www.latex-project.org/lppl.txt
+%% and version 1.3 or later is part of all distributions of LaTeX
+%% version 2005/12/01 or later.
+%%
+%% This work has the LPPL maintenance status `maintained'.
+%%
+%% The Current Maintainer of this work is Liam Huang.
+%%
+\documentclass{mcmthesis}
+\mcmsetup{CTeX = false,   % 使用 CTeX 套装时，设置为 true，这里得设false
+        tcn = 2112446, problem = D,
+        sheet = true, titleinsheet = true, keywordsinsheet = true,
+        titlepage = false, abstract = true}
+\usepackage{newtxtext}%\usepackage{palatino}
+\usepackage{lipsum}
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{subfig}
+\usepackage{float}%避免浮动体宏包
+\usepackage{palatino}  %控制正文字体，若是不喜欢可以注释掉。
+\title{Riddle of Sphinx: Cracking the Secret of Amazon’s
+Ratings and Reviews}
+\author{\small \href{https://www.latexstudio.net/}
+  {\includegraphics[width=7cm]{mcmthesis-logo}}}
+\date{\today}
+\begin{document}
+\begin{abstract}%每段之间都得换两次行@
+
+    We have witnessed the rise of mass online marketplaces. For example Amazon, one of the
+  biggest online platforms, is worth around \$ 915 billion. Guided by the customer obsession
+  principle, it provides an opportunity for the customers to rate the products from 1 to 5. Moreover, buyers can submit a text-based message, namely review, to express their feeling towards
+  the products. The massive data of those ratings and reviews offer a wealth of information remained to be mined. Analysis of text-based messages or rating-based values has received wide
+  attention, yet there is not a method severs as the combination of both, especially for the case of
+  an online marketplace.
+
+  To address the above-mentioned challenge, we propose a novel CE-VADER hybrid model
+  for sentiment analysis in reviews, classifying messages into five groups of strong positive, weak
+  positive, moderate, weak negative and strong negative. Empirical results indicate that the proposed five-group classification model correlates to the five-star rating system well. Then a
+  state-of-art informative evaluation model is proposed as the combination of the text-based and
+  rating-based measures. We pick out 1\% most informative reviews and ratings of each product
+  to evaluate the properties and propose sales strategies.
+
+  We propose the “reputation” rate based on the differential equation model in the literature
+  to evaluate the reputation of the product. Then we employ an Auto Regression (AR) model as
+  the time series forecasting method to predict future “reputation” rate and the potential success
+  or the failure of each product. AR model shows high accuracy on the validation set with a
+  maximum Root Mean Square Error (RMSE) of 0.131. Pacifiers have a good reputation and predicted to be successful while microwaves and hair dryers have bad reputations and predicted
+  to fail. The results show relevance with the proportions of the continuous five-star or one-star
+  rating sequence. Lastly, we analyze specific words and descriptors to find their correlation to
+  the ratings.
+
+  According to our empirical results, we propose some confident sales strategies and recommendations for the online marketplace, e.g., the timing choice of introducing products into
+  market, targeted adjustment according to star ratings, etc. We write a letter to the marketing
+  director of Sunshine Company to summarize our analysis and results, together with our recommendations.
+  Our framework shows a strong accuracy, robustness. It can be easily implemented to other
+  data with our source codes.
+\begin{keywords}
+  Text-Based Measure, Informative Text Selection, Reputation Quantification, Sales
+  Strategy Formation.
+\end{keywords}
+\end{abstract}
+\maketitle
+%% Generate the Table of Contents, if it's needed.这里记得改@
+  \tableofcontents
+  \newpage
+%%
+%% Generate the Memorandum, if it's needed.
+%% \memoto{\LaTeX{}studio}
+%% \memofrom{Liam Huang}
+%% \memosubject{Happy \TeX{}ing!}
+%% \memodate{\today}
+%% \logo{\LARGE I'm pretending to be a LOGO!}
+%% \begin{memo}[Memorandum]
+%%   \lipsum[1-3]
+%% \end{memo}
+%%
+\section{Introduction}
+\subsection{Problem Background}
+
+In the long river of history, the twentieth century is an era of upheaval. In the field of culture and art in this period, while negating the past forms and concepts, artists pursued and explored from a wide range of angles, so that various ideological trends filled the atmosphere of the art field. It can be said that the 20th century society, no matter from which point of view, presents a situation of coexistence of different styles. The music of the 20th century itself is a complex and diversified culture, and the composers of different genres of this period are constantly innovating from the starting point of inheriting the tradition, showing an extremely individualized tendency. At the same time, they are trying to explore the musical language and means of expression that accord with the established artistic thought and aesthetic taste. Composers in this period enjoy greater freedom to write and create than ever before. In the 20th century, music developed to multipolarization, but its development always had a clear context. Various styles coexist and tend to be integrated. Composers try everything possible to create by all means available, making the field of music wider, although some music is not accepted.
+
+With the development of computers, people can quantify music in 13 aspects, such as danceability, music energy, valence, tempo, loudness, mode, key, acousticness, instrumentalness, liveness. Based on information about music and its authors, And the quantitative data, We can find the interaction between music artists, And the development of music in society over time. The development of music is more and more clear in front of us.
+
+
+\subsection{Problem Restatement}
+
+In order to understand and measure the impact of previously produced music on new music and music artists,develop a model to measure music influence, through which we can check the evolution and revolutionary trend of artists and genres.
+
+Task1: Use the influence\_data set to build a digraph that can reflect the influence of music. Develop a parameter that reflects the music influence and explain the realization and significance of music influence in the network diagram.
+
+Task2: Develop a measurement method of music similarity and use this method to quantitative artists.Then calculate and compare the similarity of artists in the same genre and between different genres
+
+Task3:Compare the similarity, influence and relevance between genres and within genres. Develop a method to differentiate genres. Explore the relationship between genres and time.
+
+Task4:According to the similarity, verify whether the influencer affects the followers. Identify whether some musical features are relatively more "contagious.". Judge whether the characteristicss of influencers and followers are related.
+
+Task5:Establish the measurement method that can measure the revolution in music evolution, and identify the music revolutionaries
+
+Task6:Establish an indicator to reflect the dynamic influence factors of music development, and explain how music genres or artists change over time.
+
+Task7:Using the established model, analyze how to express the information about the cultural influence of music in time or environment. How to identify the impact of social, political or technological changes (such as the Internet) in the network.
+
+
+\subsection{Our Approach}
+
+Firstly, we process and clean the data set. Remove the artists of Uknown genre, and use the given data set to match the corresponding relationship between songs and genre, artists and genre, and standardize the data for specific problems. 
+
+After that, we propose an improved VPR model to measure the music influence of artists, and select artists between 2000 and 2010 as data to implement the model. We draw an influencer-follower directed network node graph, and take Kings of Leon as an example to calculate the music influence.
+
+For music similarity, we use cosine similarity to establish the calculation method of similarity index.Using this method we can get the similarity among genres.Then, we use the method of principal component analysis to make a simple analysis of the characteristics of different genres. For the influence of influencers on followers, we calculate the Pearson correlation coefficient of music influence and similarity. At the same time, taking James Taylor as an example, we define a new index to indicate the similarity of various characteristics between influencers and followers, and finally come to the conclusion that influencers do have an impact on the music created by followers.
+
+In addition, by calculating the Pearson correlation coefficient between popularity and other characteristics, we get several more infectious characteristics.Through the data analysis in the time dimension, we get the changes of music genres over time, and give a detailed definition of revolutionary characteristics,major changes and reformers. Through the analysis of statistical results and the improved VPR model, we find that the Beatles is the reformer of Pop / Rock.At the same time, we define a new index to reflect the influence of music evolution, and illustrate its specific meaning with examples. Finally, we analyze the sensitivity, advantages and disadvantages of the model and method. 
+
+So far, we have developed a complete program to understand and measure the impact of previously produced music on new music and music artists.
+
+
+
+%\begin{itemize}可能有用@
+%\item the angular velocity of the bat,
+%\item the velocity of the ball, and
+%\item the position of impact along the bat.
+%\end{itemize}
+%\lipsum[4]
+%\emph{center of percussion} [Brody 1986], \lipsum[5]
+
+%\begin{Theorem} \label{thm:latex}可能有用@
+%\LaTeX
+%\end{Theorem}
+%\begin{Lemma} \label{thm:tex}
+%\TeX .
+%\end{Lemma}
+%\begin{proof}
+%The proof of theorem.
+%\end{proof}
+
+
+\section{Assumptions and Symbols}
+\subsection{Assumptions}
+To simplify our model and eliminate the complexity, we make the following main assumptions in this literature. All assumptions will be re-emphasized once they are used in the construction of our model.
+
+\textbf{Assumption 1.}  
+\emph{shopping.}
+
+\textbf{Assumption 2.}  
+\emph{ducts.}
+
+\textbf{Assumption 3.}  
+\emph{re ignored.}
+
+\textbf{Assumption 4.}  
+\emph{ts.}
+
+\textbf{Assumption 5.}  
+\emph{Consumers pay more attention to the negative comments e.g., low-star rating or negative reviews when purchasing the products.}
+
+\subsection{Symbols}
+In this work, we use the nomenclature in Table 1 in the model construction. Other nonefrequent-used symbols will be introduced once they are used.
+\begin{table}[htbp]
+  \centering
+  \caption{Notations}
+    \begin{tabular}[cp{0.9\textwidth}]{cc}
+      \toprule[2pt]
+      Symbols & Description\\
+      \midrule
+      $Pre_i$ & Followers' preference for influencers \\
+      $MI(i)$ & music influence \\
+      $w(i,j)$ & The weight factor among artists \\
+      $LS(t)$ & The popularity of the artist's genre \\
+      $f(i,j)$ & the time interval between the decade that the artists began their music career\\
+      $Sim_i$ & The alienation degree of followers and influencers on the i-th character\\
+      $c_artist^{i}$ & The i-th character of an artist named “artist’name”\\
+      $C^*$ & Comment Quantification Value\\
+      $number_f$ & the total number of the followers\\
+      
+      
+      
+      $C$ & Standardization of $C^*$ \\
+      $M$ & Overall Measures\\
+      $\alpha$ & Weight Factor\\
+      $ATT$ & Average Effect Treatment on the Treated\\
+      $\mathbb{P}\left( \boldsymbol{X}_i \right)$ & The Propensity Score of the Individual $i$\\
+      \bottomrule[2pt]
+    \end{tabular}
+    \label{tab1} 
+  
+  \end{table}
+\section{Data Processing and Analysis}
+\subsection{Data Cleaning}
+
+llllllllllaala
+\subsection{Insight of Data}
+
+llllllll
+
+\section{Model 1}
+An artist is influenced by influencers, and as an influencer he influences other artists. If an artist is followed by many artists, his music influence may be great. If an artist is not followed by many artists, his music influence may be great. If an artist is followed by one artist with great influence, his music influence may be great. We also consider that an artist's music influence is influenced by time. In different periods of time, an artist is followed by different numbers of artists with different influences, and that artist's music influence will change accordingly. At the same time, if a genre is popular, the music influence of its artists increases. To sum up, we evaluate the influence of music by considering the influence size of followers, the time interval between the decade that the artists began their music career s, the popularity of the genre in the period of followers, and the attention of followers. In this section, we propose an improved VPR model to measure the music influence of artists.
+
+\subsection{Music influence evaluation index}
+Music influence is used to measure the influence of a musician on the music industry, which is divided into two dimensions: the influence on artists of the same genre and the influence on artists of different genres. The influence on artists in the same genre is that it causes more artists to enter the genre and start their music careers. The influence on artists in different genres means that artists in another genre are involved in the creation of works in the field.
+
+The essence of an artist following another artist is the process of the spread of the artist's music influence. The concept of time heterogeneity is involved here, and factors such as the different prevalence of different schools in different time spans should also be considered to reduce the impact of time heterogeneity on the evaluation results. Therefore, in order to minimize the impact of the temporal heterogeneity of the evaluation index of music influence on the analysis results, different weights should be set for the communication index of music influence composed by artists of different genres in different years.
+\subsubsection{The degree of preference}
+An artist may have many influencers, and the degree of preference for different influencers is different, so we define the degree of preference as
+\begin{equation}
+  pre_i=\left\{ \begin{array}{l} 	a*\frac{1}{number_f} \quad \text{the influencer belongs to the same genre as the artist} 
+    \\  ( 1-a)*\frac{1}{number_f} \qquad \text{the influencer is not in the same genre as the artist} \end{array} \right.
+\end{equation}
+
+If the influencer belongs to the same genre as the artist, then the artist prefers the influencer, and the weight is a. 
+If the influencer is not in the same genre as the artist, then the weight is 1-a. $a \in \left(0.5,1\right) $
+
+\subsubsection{music influence}
+If he is followed by many artists who have great influence in recent years, his music influence will also be high. Therefore, for each artist, his $MI(i)$ depends on the music influence of all artists who follow him and the popularity of his genre in recent years. 
+
+The formula is as follows:
+\begin{equation}
+  MI(i)=d\sum_{j\rightarrow i}^{}  VPR(J)*\omega (i,j)+\frac{1-d}{| V_p\vert }
+\end{equation}
+where w(i,j) is the probability function of jumping from j to i
+
+w(i,j) is the probability function of jumping from j to i
+\begin{equation}
+  \omega (i,j)=\alpha *LS(t)+(1-\alpha)*f(i,j)
+\end{equation}
+where $LS(t)$ refers to the popularity of the genre of the artist, and f(I,j) refers to the time interval between the decade that the artists began their music career. 
+\begin{equation}
+  f(i,j)=e^{-\sigma (T_j-T_i)}
+\end{equation}
+where $\sigma$ is a decline factor ,$T_i$ is the decade that the artist i began his music career.
+
+We believe that there is a linear relationship between the influence of a genre and the proportion of the genre to the total number of artists in a given year.So:
+\begin{equation}
+  LS(t)=\frac{the increase in number of the genre }{the number of the genre not include the increase}
+\end{equation}
+
+\subsection{Model implementation and result analysis}
+We implement our proposed model with the data given. The modified VPR model has four parameters in total:
+$a,\alpha,\sigma,d$.$d$is set to 0.85， learned from the research of  Professor Zhang [1].
+$\sigma$is set as 0.137.
+Parameter $\alpha$ is used to adjust the time factor.So $\alpha\in [0.1,1]$.We set it as 0.3
+
+Here, we only select artists beginning their music careers in 2000 and 2010 as data for model implementation. The relationship between Influencers and followers is shown in Figure 888. Set the follower as “target” and the Influencer as “sourse”.
+\begin{figure}[h]
+	\small
+	\centering
+	\includegraphics[scale=1]{4.2_1.png}
+	\caption{Flowchart of Algorithm}
+\end{figure}
+As shown in Figure 888, Kings of Leon's different music influences on Saving Abel, Sheppard, Young the Giant, The Lumineers, George Ezra, Rainbow Kittens Surprise and Rainbow Kittens Surprise are shown. The size of the circle indicates the amount of influence.
+
+\begin{figure}[h]
+	\small
+	\centering
+	\includegraphics[scale=1]{4.2_2.jpg}
+	\caption{Flowchart of Algorithm}
+\end{figure}
+We can find that this model can well represent the music influence. Combined with the data\_influence file, it can be seen that Kings of Leon influences Saving Abel, Sheppard, Young the Giant, The Lumineers, George Ezra, Rainbow Kittens Surprise, Rainbow Kittens Surprise, all of which are pop/rock genre, Saving Abel, Sheppard, Young the Giant started their musical career in 2000, but by 2010 no one had followed them. The Lumineers started Pop/Rock in 2000 and had a following The Oh Hellos, who started in 2010. As we can see from the percentage of genre’s new additions, Pop/Rock was more popular in 2000, so MI (Kings of Leon) was the biggest of the bunch.
+
+
+\section{Model 2}
+\subsection{Data Cleaning}
+
+In order to obtain real and credible results, we first conduct relevant processing on the data set. We found that in the full\_music\_data data set, there are some songs composed by two or more artists, and according to the statistics, there are 4410 such songs. There may be artists of different genres among the artists of these songs, leading to the unknown genre of songs, which may have a certain impact on the calculation results. Therefore, all these data are eliminated. At the same time, we combined the influence\_data data set, matched the genre of corresponding artists with the unique identifier artists\_id, and filled the result back into full\_music\_data data set to form a one-on-one correspondence relationship with the song, and eliminated the data that failed to match successfully. For songs whose genre is Unknown, we should also disregard this part of data and eliminate all of them. By analyzing the characteristics contained in the music, we find that release\_data is the concrete expression of year, so we delete the release\_data characteristics that are not easy to quantify. At this point, the data cleansing is complete, and we end up with a new data set of 79,704 data items named full\_music\_data\_sortedtemp.
+\subsection{Data Standardization}
+Each song contains 15 traits in the newly generated data set, all of which are used for similarity calculations.
+\begin{figure}[h]
+	\small
+	\centering
+	\includegraphics[scale=0.5]{p4_4.png}
+	\caption{Flowchart of Algorithm}
+\end{figure}
+We found that the dimensionality of these variables is not consistent, and to eliminate the effect of dimensionality on the final result, we process the data through data normalization. Here we use the min-max normalization process. For sequences x1, x2..., xn, we use formula followed to calculate:
+
+\begin{equation}
+  y_i={\frac{x_i-\underset{1\leq j \leq n}\min {\{ x_j\}}}{\underset{1\leq j \leq n}\min {\{x_j\}}-\underset{1\leq j \leq n}\min {\{x_j\}}} }  
+\end{equation}
+
+New sequence$y_1,y_2,...,y_n \in [0,1]  $can be obtained and there’s no dimension. Using this method, the 15 variables are processed successively, and their values are normalized to the interval of 0-1, and the influence of dimension on the final result is eliminated.
+
+\subsection{Similarity Calculation}
+For music similarity, we calculate by using cosine similarity [1]. Cosine similarity is a method of computing similarity. This method first maps the individual index data to vector space, and then measures the inner product between two individuals vector space. The closer the Angle between two individual vectors is to 0°, that is, the greater the cosine value of the Angle is, the higher the similarity between two individuals is. The closer the Angle between two individuals is to 180°, the smaller the cosine value of the Angle is, indicating the lower the similarity. As can be seen from Figure 1, compared with vector B, vector A and vector C have higher similarity.
+\begin{figure}[h]
+	\small
+	\centering
+	\includegraphics[scale=1]{p4_5.png}
+	\caption{Flowchart of Algorithm}
+\end{figure}
+$\cos \theta $is defined as the similarity between two vectors, and the value range is [1, -1]. The cosine similarity of the two individuals is calculated by the following formula:
+
+\begin{equation}
+ \cos \theta ={\frac{Y_i\cdot Y_s}{\left\lvert Y_i\right\rvert \cdot \left\lvert Y_s \right\rvert}}={\frac{\left(y_{i1},y_{i2},...,y_{in}\right) \cdot \left(y_{s1},y_{s2},...,y_{sn}\right)}
+ {\sqrt{\sum_{j = 1}^{n} (y_{ij})^2 } \cdot\sqrt{\sum_{j = 1}^{n} (y_{sj})^2 }} }  
+\end{equation} 
+$Y_i$and$Y_s$represent the $i^{th}$ and $s^{th}$ different vector respectively.
+
+Using this method, the 15 characteristics of each song are taken as a vector and substituted into the formula to calculate the similarity of the two songs.
+
+For the degree of similarity between genres, songs are classified according to their genres. Due to the large amount of data, it’s not realistic nor necessary to do all the calculation. Therefore, our team extracted 10 songs from each genre randomly and made it as the sample for the further calculation. Compare the data and type calculating results into an Excel file ( named sim.xlsx.) Then average data are calculated in order to compute the similarity of same and different genres. The results depicting similarity among various genres are as follows:
+
+\begin{figure}[h]
+	\small
+	\centering
+	\includegraphics[scale=0.9]{p4_6.png}
+	\caption{Flowchart of Algorithm}
+\end{figure}
+
+As shown in the figure, the value of each point is the similarity between the two genres marked by the horizontal and vertical coordinates of the point. The diagonal represents the similarity of artists of the same type. The closer its value is to 1, the greater the similarity is. It is not hard to find that all genres, except Pop/Rock, are slightly more similar to themselves than to other genres, consistent with the conventional wisdom.It can be argued that each genre has its own characteristics, used to distinguish each genre. Take Reggage as an example:
+\begin{figure}[h]
+	\small
+	\centering
+	\includegraphics[scale=0.9]{p4_7.png}
+	\caption{Flowchart of Algorithm}
+\end{figure}
+It can be found that the self-similarity within the Reggae genre is 0.94, higher than the similarity between Reggae and other genres, where Reggae and Stage\&Screen has the lowest similarity, which is 0.79.
+
+%\begin{figure}[h]插入图片@
+%\small
+%\centering
+%\includegraphics[width=8cm]{example-image-a}
+%\caption{The name of figure} \label{fig:aa}
+%\end{figure}
+%
+%\lipsum[8] \eqref{aa}
+%\begin{equation}
+%a^2 \label{aa}
+%\end{equation}
+%
+%\[
+%  \begin{pmatrix}{*{20}c}
+%  {a_{11} } & {a_{12} } & {a_{13} }  \\
+%  {a_{21} } & {a_{22} } & {a_{23} }  \\
+%  {a_{31} } & {a_{32} } & {a_{33} }  \\
+%  \end{pmatrix}
+%  = \frac{{Opposite}}{{Hypotenuse}}\cos ^{ - 1} \theta \arcsin \theta
+%\]
+%\lipsum[9]
+%
+%\[
+%  p_{j}=\begin{cases} 0,&\text{if $j$ is odd}\\
+%  r!\,(-1)^{j/2},&\text{if $j$ is even}
+%  \end{cases}
+%\]
+%
+%\lipsum[10]
+%
+%\[
+%  \arcsin \theta  =
+%  \mathop{{\int\!\!\!\!\!\int\!\!\!\!\!\int}\mkern-31.2mu
+%  \bigodot}\limits_\varphi
+%  {\mathop {\lim }\limits_{x \to \infty } \frac{{n!}}{{r!\left( {n - r}
+%  \right)!}}} \eqno (1)
+%\]
+
+\section{Informative Evaluation Model}
+In this section, we proposed the "importance" to evaluate how informative the review text
+and star rates are. The most informative factor we take into account is the sentiment of the
+review text. In this literature, we propose a CE-VADER model to address the sentiment analysis
+issue in the review text. Our model will classify the text into five groups: strong positive, weak
+positive, moderate, weak negative and strong negative in the consistency of the five-star rating
+scheme. Then our proposed "importance" will incorporate the text-based measure, star rating with their fidelity, correlation. The higher the importance, the more informative it is. The rest
+of the section is arranged as follows. In section 3.1, we covert the integral star rate to vector
+form. In section 3.2, we propose the CE-VADER, a hybrid model for the text-based measures.
+In section 3.3, we introduce the "importance" to calculate how informative the review and the
+star rating together are. In section 3.4, we implemented our model on real data set of 3 types
+of products to indicate 1\% most informative review and star ratings, and analyze the model
+sensitivity
+\subsection{Vector Encoding Forms of Star Ratings}
+Consumers can freely express their comments on the products on Amazon by rating one
+to five stars after purchasing. A one-star rating is associated with the least satisfaction while
+five-star with the highest satisfaction. The one-to-five star rating itself is a sufficient measure.
+To combine the ratings-based measure with the text-based measure which we will discuss in
+the next section. We would like to convert the star-rating to vector forms in this section.
+Firstly, we calculate the ration of each star rate of hair dryers, baby pacifiers, and microwaves from the given data respectively, as shown in Figure 1. We observe that baby pacifiers
+have received the highest percentage of high star rating, while microwaves a lower star rating.
+Products with high technology content also face more quality problems, which is in line with
+actual expectations, indicating that star ratings can indeed reflect consumer satisfaction.
+However, we would like to convert the rating to an equivalent 55dimension vector encoding forms. Deno te the star-rate as $s \in \{ 1, 2, 3, 4, 5\} $, the vector encoding forms of $s$ can be
+formulated by $ VEC(s) =  ( vec_s^{1}, · · · , vec
+_s^{5})^{T} \in R^{5} $where the components defined by:
+\begin{equation}
+  vec_s^{i}={\frac{e^\frac{| i-s\vert ^{2}}{2\sigma _0}}{\sum_{j = 1}^{5} e^{\frac{| j-s\vert ^{2}}{2\sigma _0} } }   }
+\end{equation}
+where $\sigma _0 $ is a tunable parameter, determining the robustness of our model, the bigger the more
+robust. The mapping VEC is one-to-one, hence we claim the converted form is equivalent to the
+star-rating. Moreover, by our definition, we can find: i) $s = argmax_i\{vec_s^{i}\}$, ii) $\sum_{i = 1}^{5}  vec_s^{i} = 1$.
+VEC(s) encoding as a probabilistic vector with each component represents their possibility to
+be rated by the associated star e.g., the 4-star rate has the highest probability to be rated 4 stars,
+second-highest possibility to be rated as 3 or 5 stars.
+\subsection{Contextual Entropy VADER Hybrid Model for Text-Based Measures}
+In this literature, we construct a novel model for sentiment analysis based on the review
+text. To the sake of simplicity, the sentiment scored by the text is regarded as the only fact to
+measure the success or the failure of the product e.g., the positive attitudes usually indicate
+a higher potential of the product success while on the contrary, negative attitudes indicate a
+higher possibility for the product failure.
+
+In this section, we propose a contextual entropy and VADER [7] hybrid model, namely the
+CE-VADER to address the sentiment analysis challenge in the review text. The model is made
+up of the two blocks: the contextual entropy (CE) block and the VADER block. CE model shows
+its high capability in sentiment analysis of the stock market news [6] but its limitation in short
+context e.g., the review in this literature. While the VADER model outperforms the state-of-art
+nature language model in short online texture but their accuracy depends a lot on the pre-listed
+lexicon words. The two blocks of CE-VADER will separative outcome a 55dimension probabilistic vector with each component represents the probability of being its associated group.
+After a voting block, our proposed model will classify the review into one of the five groups
+together with an intensity showing how intense it is to be classified into the group. By hybridizing both models, we show CE-VADER can classify the review context into five groups in the
+consistency of the star rating.
+\begin{figure}[h]
+	\small
+	\centering
+	\includegraphics[scale=1]{1.png}
+	\caption{Flowchart of Algorithm}
+\end{figure}
+
+拉拉爱地乃农村The rest of this section is arranged as follows. Firstly we show our strategy to generate
+the seed words for the CE model and expanding the gold-standard list of the VADER block.
+Then we introduce the CE and VADER model superlatively. Finial we propose the hybrid CEVADER model. Our model will classify the review context into five classes: strong positive,
+weak positive, moderate, weak negative and strong negative, with its intensity. In the next
+section, we will propose a review fidelity based on the classification results and the intensity.
+
+\begin{figure}[h]
+	\small
+	\centering
+	\includegraphics[scale=1]{1.png}
+	\caption{Flowchart of Algorithm}
+\end{figure}
+
+\begin{figure}[htbp]
+	\centering
+	\subfloat[Hairdryer]{
+		\begin{minipage}[t]{0.45\textwidth}
+			\centering
+			\includegraphics[scale=0.5]{1.png}
+	\end{minipage} }
+	\qquad
+	\subfloat[Microwave]{
+		\begin{minipage}[t]{0.45\textwidth}
+			\centering
+			\includegraphics[scale=0.5]{1.png}
+	\end{minipage} }
+	\caption{Average Rating Value over the years}
+	\label{fig:1}
+\end{figure}
+\section{The Model Results}
+\lipsum[6]
+
+\section{Validating the Model}
+\lipsum[9]
+
+\section{Conclusions}
+\lipsum[6]
+
+\section{A Summary}
+\lipsum[6]
+
+\section{Evaluate of the Mode}
+
+\section{Strengths and weaknesses}
+\lipsum[12]
+
+\subsection{Strengths}
+\begin{itemize}
+\item \textbf{Applies widely}\\
+This  system can be used for many types of airplanes, and it also
+solves the interference during  the procedure of the boarding
+airplane,as described above we can get to the  optimization
+boarding time.We also know that all the service is automate.
+\item \textbf{Improve the quality of the airport service}\\
+Balancing the cost of the cost and the benefit, it will bring in
+more convenient  for airport and passengers.It also saves many
+human resources for the airline. \item \textbf{}
+\end{itemize}
+
+\begin{thebibliography}{99}
+\bibitem{1} D.~E. KNUTH   The \TeX{}book  the American
+Mathematical Society and Addison-Wesley
+Publishing Company , 1984-1986.
+\bibitem{2}Lamport, Leslie,  \LaTeX{}: `` A Document Preparation System '',
+Addison-Wesley Publishing Company, 1986.
+\bibitem{3}\url{https://www.latexstudio.net/}
+\end{thebibliography}
+
+\begin{appendices}
+
+\section{Tools and software}
+Paper written and generated via \LaTeX{}, free distribution.
+
+Graph generated and calculation using MATLAB R2019a.
+
+%\begin{letter}{Dear, Mr. Alpha Chiang}
+%
+%\lipsum[1-2]
+%
+%\vspace{\parskip}
+%
+%Sincerely yours,
+%
+%Your friends
+%
+%\end{letter}
+\section{The Codes}
+Here are simulation programmes we used in our model as follow.\\
+\subsection{ARIMA Model Parameter Estimation and Ordering Code}
+\lstinputlisting[language=Matlab]{./code/mcmthesis-matlab1.m}
+
+%\section{Second appendix}
+%
+%some more text \textcolor[rgb]{0.98,0.00,0.00}{\textbf{Input C++ source:}}
+%\lstinputlisting[language=C++]{./code/mcmthesis-sudoku.cpp}
+
+\end{appendices}
+\end{document}
+%% 
+%% This work consists of these files mcmthesis.dtx,
+%%                                   figures/ and
+%%                                   code/,
+%% and the derived files             mcmthesis.cls,
+%%                                   mcmthesis-demo.tex,
+%%                                   README,
+%%                                   LICENSE,
+%%                                   mcmthesis.pdf and
+%%                                   mcmthesis-demo.pdf.
+%%
+%% End of file `mcmthesis-demo.tex'.
